@@ -1,0 +1,40 @@
+@import "partials/mixins";
+@import "partials/params";
+
+
+.table-striped {
+  .table-item {
+    @include table-item;
+
+    &:nth-child(2n-1) {
+      background-color: $gray-blue-hover;
+    }
+
+    &:nth-child(2n) {
+    }
+  }
+}
+
+
+.table-striped__invert {
+  .table-item {
+    @include table-item;
+
+    &:nth-child(2n-1) {
+    }
+
+    &:nth-child(2n) {
+      background-color: $gray-blue-hover;
+    }
+  }
+}
+
+.table-hover {
+  .table-item {
+    transition: .2s;
+    &:hover {
+      background: rgba(234,242,255,0.77);
+      box-shadow: inset 0 0 0 1px #D5DFF1;
+    }
+  }
+}

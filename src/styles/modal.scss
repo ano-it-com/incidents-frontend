@@ -1,0 +1,48 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.vm--overlay {
+  background: rgba(42, 63, 100, 0.68)!important;
+}
+
+.vm--modal {
+  background-color: $white!important;
+  box-shadow: 0 20px 44px rgba(32, 43, 61, 0.61) !important;
+  border-radius: 0!important;
+}
+
+.modal {
+  &__header {
+    font-size: 21px;
+    font-weight: 700;
+    color: $darkblue;
+    line-height: 32px;
+    padding: 15px 68px 15px 28px;
+    border-bottom: 1px solid $gray-blue-border;
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    cursor: pointer;
+    color: $close-color;
+    transition: color .2s;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &__content{
+    padding: 15px 28px;
+  }
+
+  &__footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 28px;
+    border-top: 1px solid $gray-blue-border;
+  }
+}

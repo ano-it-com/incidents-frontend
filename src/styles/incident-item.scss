@@ -1,0 +1,115 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.incident-item {
+
+  &__title {
+
+    & span{
+      color: $gray-blue-border;
+    }
+
+    & a {
+      color: $darkblue;
+      font-weight: inherit;
+      font-size: inherit;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        color: $blue;
+      }
+
+
+      svg {
+        position: absolute;
+        margin-left: 5px;
+        bottom: 5px;
+        fill: $gray-blue-border !important;
+      }
+    }
+  }
+
+
+ .status-panel {
+   margin-bottom: ($mm-value * 8) + px;
+ }
+
+  &__actions {
+    position: relative;
+  }
+
+  &__title {
+    margin: ($mm-value * 4) + px 0;
+
+    & a {
+      ::v-deep .icon {
+        color: $close-color;
+        transition: .3s;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 15px;
+    color: $text;
+
+    p {
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+      margin-bottom: ($mm-value * 6) + px;
+    }
+  }
+
+  &__parent{
+    font-size: 12px;
+    line-height: 16px;
+    color: $gray;
+    margin-top: 5px;
+  }
+}
+
+.incident {
+  &__info {
+
+    &-list {
+      list-style: none;
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 2px;
+
+      &:nth-child(odd) {
+        background-color: $white;
+      }
+
+      &:nth-child(even) {
+        background-color: $light-gray;
+      }
+    }
+
+    &-name {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      width: 120px;
+    }
+
+    &-value {
+      font-size: 12px;
+      line-height: 16px;
+      width: calc(100% - 135px);
+
+      & a {
+        color: $blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.user{
+  position: relative;
+  display: flex;
+  width: 24px;
+  height: 24px;
+
+  &.online {
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      transform: translate(50%, 50%);
+      background-color: $green;
+      border-radius: 50%;
+      border: 2px solid $white;
+      width: 10px;
+      height: 10px;
+      z-index: 2;
+    }
+  }
+
+  &__img {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    overflow: hidden;
+
+    & img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

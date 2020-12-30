@@ -1,0 +1,313 @@
+@import "partials/mixins";
+@import "partials/params";
+
+
+// Autor, id panel
+.info-panel {
+  &__block {
+    display: flex;
+    align-items: center;
+    margin-bottom: ($mm-value * 2) + px;
+  }
+
+  &__id {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px 1px;
+    background-color: $light-gray;
+    border-radius: 2px;
+    border: 1px solid $gray-blue-border;
+    margin-right: 10px;
+    color: $darkblue;
+  }
+
+  &__date {
+    position: relative;
+    font-size: 12px;
+    line-height: 16px;
+    color: $gray;
+    margin-right: 24px;
+
+    &::after {
+      content: '';
+      background-color: $gray;
+      width: 4px;
+      height: 4px;
+      position: absolute;
+      top: 50%;
+      right: -12px;
+      transform: translate(50%, -50%);
+      border-radius: 50%;
+    }
+  }
+
+  &__author {
+    font-size: 12px;
+    line-height: 16px;
+    color: $blue;
+  }
+}
+
+
+// Description
+
+.page__description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: $text;
+  font-weight: 200;
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin-bottom: ($mm-value * 6) + px;
+  }
+}
+
+
+
+// Second block on page. Example, recommendations or actions
+
+.creation__box {
+  margin-top: ($mm-value * 8) + px;
+  position: relative;
+  margin-bottom: 40px;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .title {
+      font-size: 21px;
+      line-height: 32px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+
+// Right column
+
+.right-block {
+  .link__edit {
+    font-size: 12px;
+    margin: ($mm-value - 1) + px 0 ($mm-value * 4) + px;
+  }
+}
+
+// Status panel
+
+.status-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $light-gray;
+  width: 100%;
+  height: 48px;
+  padding: ($mm-value * 4) + px;
+  border-radius: 2px;
+
+  &-text {
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: -.3px;
+    flex: 0 0 120px;
+  }
+
+  &__modal {
+    margin-bottom: ($mm-value * 8) + px;
+  }
+}
+
+
+
+// information
+
+.information {
+  position: relative;
+  background-color: $white;
+  width: 600px;
+  min-width: 600px;
+  padding: 35px 30px;
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    & .title {
+      font-size: 14px;
+    }
+
+    & .information__edit {
+      margin-right: 0;
+    }
+  }
+
+  &__files {
+    justify-content: flex-start;
+  }
+}
+
+
+//.detail {
+//
+//  & .container {
+//    margin: 0;
+//  }
+//
+//
+//  & .incident-item {
+//    &__description {
+//      font-size: 16px;
+//      line-height: 28px;
+//      margin-top: 16px;
+//    }
+//  }
+//
+
+//
+//  &__list {
+//    position: relative;
+//    list-style: none;
+//  }
+//
+//  &__item {
+//    position: relative;
+//    display: flex;
+//    justify-content: space-between;
+//    align-items: center;
+//    border-radius: 2px;
+//    padding: 12px 16px;
+//
+//    &:nth-child(odd) {
+//      background-color: $gray-blue;
+//
+//      & .operation__item-right.request {
+//        background-color: $gray-blue;
+//
+//        &:before {
+//          background: linear-gradient(to right, transparent, $gray-blue);
+//        }
+//      }
+//    }
+//
+//    &:nth-child(even) {
+//      background-color: $white;
+//
+//      & .operation__item-right.request {
+//        background-color: $white;
+//      }
+//    }
+//
+//    & .incident__author {
+//      margin-right: 10px;
+//    }
+//
+//    & .fake__item-time {
+//      margin-left: 10px;
+//    }
+//
+//    & .operation__item-right {
+//      min-height: 32px;
+//    }
+//
+//    & .fake__item-delete {
+//      margin-left: 20px;
+//    }
+//  }
+//
+//  .recommendation{
+//
+//
+//
+//
+//    &-lock{
+//      position: relative;
+//      margin-left: 10px;
+//      margin-right: auto;
+//      cursor: pointer;
+//      &:hover{
+//        & .act__recommendation-tooltip{
+//          opacity: 1;
+//          visibility: visible;
+//          transition: 0.5s;
+//        }
+//        & svg{
+//          fill: $blue;
+//          transition: 0.3s;
+//        }
+//      }
+//      & svg{
+//        width: 12px;
+//        height: 12px;
+//        fill: $close-color;
+//        transition: 0.3s;
+//      }
+//    }
+//    &-tooltip{
+//      position: absolute;
+//      display: flex;
+//      align-items: center;
+//      top: 50%;
+//      right: -8px;
+//      font-size: 10px;
+//      font-weight: 500;
+//      width: 210px;
+//      color: $white;
+//      padding: 5px 12px;
+//      border-radius: 4px;
+//      background-color: rgba(10, 29, 52, 0.83);
+//      text-align: left;
+//      transform: translate(100%, -50%);
+//      z-index: 10;
+//      opacity: 0;
+//      visibility: hidden;
+//      pointer-events: none;
+//      transition: 0.5s;
+//      &:after{
+//        content: '';
+//        position: absolute;
+//        top: 50%;
+//        transform: translateY(-50%);
+//        left: -12px;
+//        width: 0;
+//        height: 0;
+//        border: 6px solid transparent;
+//        border-right: 6px solid rgba(10, 29, 52, 0.83);
+//      }
+//    }
+//    &-status{
+//      font-size: 11px;
+//      font-weight: 500;
+//      letter-spacing: -0.2px;
+//      & i{
+//        vertical-align: middle;
+//        margin-right: 5px;
+//      }
+//      &.completed{
+//        & svg{
+//          width: 12px;
+//          height: 12px;
+//          fill: $green;
+//        }
+//      }
+//      &.error{
+//        & svg{
+//          width: 12px;
+//          height: 12px;
+//          fill: $red;
+//        }
+//      }
+//    }
+//  }
+//
+//
+//}

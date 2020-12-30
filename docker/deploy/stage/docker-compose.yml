@@ -1,0 +1,23 @@
+version: '3.4'
+
+volumes:
+  dist: {}
+
+services:
+  ims-front:
+    image: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
+    restart: always
+    volumes:
+    - dist:/home/node/app/dist
+
+  nginx:
+    build:
+      context: ./
+      dockerfile: nginx.Dockerfile
+    restart: always
+    depends_on:
+      - ims-front
+    ports:
+      - 8080:80
+    volumes:
+      - dist:/var/www/html

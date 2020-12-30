@@ -1,0 +1,71 @@
+@import "partials/mixins";
+@import "partials/params";
+
+
+a {
+  color: $black;
+  text-decoration: none;
+  transition: color .3s;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.link {
+  color: $blue;
+  cursor: pointer;
+  font-weight: 400;
+
+  &:hover {
+    color: $black;
+  }
+
+  & .icon {
+    margin-right: 4px;
+  }
+
+  &__edit {
+  }
+
+  &__delete {
+    color: red;
+  }
+
+  &__pseudo {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      opacity: .8;
+      border-bottom: 1px dotted $blue;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__back {
+    font-size: 13px;
+    font-weight: 500;
+
+    .icon {
+      position: relative;
+      top: 2px;
+      left: 0;
+      transition: left .3s;
+    }
+    &:hover {
+      .icon {
+        left: -5px;
+      }
+    }
+  }
+}

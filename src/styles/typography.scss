@@ -1,0 +1,77 @@
+@import "partials/mixins";
+@import "partials/params";
+
+
+h1, h2, h3, h4, h5 {
+  @include title;
+
+  span {
+    color: $light-gray;
+  }
+
+  sup {
+    font-family: Rubik;
+    font-weight: 100;
+    color: $close-color;
+    position: relative;
+  }
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 36px;
+  margin: 0 0 ($mm-value * 3)+px;
+}
+
+h2 {
+  font-size: 21px;
+  letter-spacing: 0;
+  line-height: 32px;
+
+  sup {
+    font-size: 12px;
+    top: -12px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 28px;
+}
+
+h4 {
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 28px;
+
+  sup {
+    font-size: 10px;
+    top: -10px;
+  }
+}
+
+h5 {
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0;
+  margin-bottom: ($mm-value * 2) + px;
+
+  sup {
+    font-size: 10px;
+    top: -10px;
+  }
+}
+
+
+.title {
+  position: relative;
+}
+
+
+p {
+  color: $black;
+  line-height: 1.2em;
+  padding: 0;
+  margin: 0;
+}

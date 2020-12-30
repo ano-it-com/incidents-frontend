@@ -1,0 +1,128 @@
+@import "~@/styles/partials/mixins";
+@import "~@/styles/partials/params";
+
+.incident-status {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &.column-view {
+    flex-direction: column;
+    align-items: inherit;
+
+    .incident-status-time {
+      margin-top: 3px;
+    }
+  }
+
+  &-time {
+    position: relative;
+    font-size: 12px;
+    font-weight: 500;
+    color: $black;
+    padding: 2px 17px 0 10px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      width: 12px;
+      height: 12px;
+      background: url("~@/assets/icon-time-black.svg") no-repeat center;
+      background-size: contain;
+    }
+
+    &.red {
+      color: $red;
+
+      &::before {
+        background: url("~@/assets/icon-time-red.svg") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    &.none{
+      display: none;
+    }
+  }
+
+  &-type {
+    position: relative;
+    font-size: 12px;
+    padding-left: 18px;
+    letter-spacing: -.3px;
+
+    &.bordered {
+      background-color: #fff;
+      border-radius: 4px;
+      border: 1px solid #EBEFF6;
+      padding: 6px 8px 5px 19px;
+      margin-right: auto;
+      margin-left: 12px;
+
+      &::before {
+        left: 6px;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      border: 2px solid $white;
+      border-radius: 50%;
+    }
+
+    &.new, &.draft {
+      &::before {
+        background-color: $gray-blue-border;
+      }
+    }
+
+    &.in_work {
+      &::before {
+        background-color: $yellow;
+      }
+    }
+
+    &.completed {
+      &::before {
+        background-color: $green;
+      }
+    }
+
+    &.request {
+      display: flex;
+      align-items: center;
+      border: 1px solid $gray-blue-border;
+      background-color: $white;
+      cursor: pointer;
+      color: $blue;
+      font-weight: 500;
+      height: 32px;
+      letter-spacing: -0.4px;
+      border-radius: 4px;
+      padding: 0 10px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $blue;
+        border: 1px solid $blue;
+        color: $white;
+        transition: 0.3s;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

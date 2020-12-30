@@ -1,0 +1,359 @@
+@import "partials/params";
+@import "partials/mixins";
+
+
+// Link to incident
+
+.incident-item {
+  &__parent {
+    font-size: 14px;
+    font-weight: 200;
+
+    a {
+      font-weight: inherit;
+    }
+  }
+}
+
+
+.incident-item {
+  &__parent {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 200;
+    margin: -($mm-value * 1) + px 0 ($mm-value * 4) + px;
+
+    a {
+      font-weight: inherit;
+    }
+  }
+}
+
+
+// List recommendation
+
+.recommendation {
+  &-list {
+    margin: 14px 0 40px;
+    list-style: none;
+  }
+
+  &-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+    padding: 12px 16px;
+
+    .newAct__box-change {
+      display: flex;
+      align-items: baseline;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 2;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s;
+
+      .link {
+        font-size: 12px;
+        font-weight: 500;
+
+        & + .link {
+          margin-left: 24px;
+
+          &__pseudo {
+            margin-left: 32px;
+          }
+        }
+      }
+    }
+
+    &:nth-child(2n-1){
+      & .recommendation-more{
+        &:before{
+          background: linear-gradient(to bottom, rgba($gray-blue-hover, 0), $gray-blue-hover);
+        }
+      }
+
+      &:hover {
+        & .recommendation-more{
+          &:before{
+            background: linear-gradient(to bottom, rgba($light-gray, 0), $light-gray);
+          }
+        }
+      }
+    }
+
+
+    &:nth-child(2n){
+      & .recommendation-more{
+        &:before{
+          background: linear-gradient(to bottom, rgba($white, 0), $white);
+        }
+      }
+
+      &:hover {
+        & .recommendation-more{
+          &:before{
+            background: linear-gradient(to bottom, rgba($white, 0), $white);
+          }
+        }
+      }
+    }
+
+
+    &:hover {
+      & .newAct__box-change{
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s;
+      }
+    }
+
+
+  }
+
+  &-number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    background-color: $white;
+    border: 1px solid $gray-blue-border;
+    border-radius: 2px;
+  }
+
+  &-info{
+    width: 100%;
+    margin-top: 12px;
+  }
+  &-caption{
+  }
+  &-description {
+    height: 50px;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.8;
+    transition: height .3s;
+    letter-spacing: 0.12px;
+    color: $text;
+
+    p {
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+      margin-bottom: ($mm-value * 6) + px;
+    }
+
+  }
+  &-more {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    & .btn-blue {
+      width: 132px;
+    }
+    & .btn-white {
+      width: 164px;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+    }
+  }
+  &-lock{
+    position: relative;
+    margin-left: 10px;
+    margin-right: auto;
+    cursor: pointer;
+    color: $close-color;
+
+    & svg{
+      width: 12px;
+      height: 12px;
+      transition: 0.3s;
+    }
+
+    &:hover{
+      & .act__recommendation-tooltip{
+        opacity: 1;
+        visibility: visible;
+        transition: 0.5s;
+      }
+      & svg{
+        fill: $blue;
+        transition: 0.3s;
+      }
+    }
+
+  }
+
+  &-status{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    & i{
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    &.completed{
+      & svg{
+        fill: $green;
+      }
+    }
+    &.error{
+      & svg{
+        fill: $red;
+      }
+    }
+  }
+
+  &__comment{
+    &-box{
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      &.mine{
+        & .user,
+        & .act__comment-name{
+          order: 2;
+        }
+        & .act__comment-content{
+          color: $white;
+          background-color: $blue;
+          border-radius: 8px 0 8px 8px;
+          & a{
+            color: $yellow;
+          }
+          & span{
+            background-color: $blue2;
+            border-left: 2px solid $white;
+          }
+        }
+      }
+    }
+    &-info{
+      width: calc(100% - 36px);
+      margin-top: 5px;
+      overflow: hidden;
+      transition: all 0.7s ease-out 0s;
+      &:hover{
+        & .act__comment-bottom{
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.3s;
+        }
+      }
+    }
+    &-top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-name{
+      font-size: 12px;
+      font-weight: 500;
+      color: $gray;
+      &:hover{
+        transition: 0.3s;
+        color: $blue;
+      }
+    }
+    &-time{
+      font-size: 11px;
+      font-weight: 500;
+      color: $gray;
+    }
+    &-content{
+      font-size: 13px;
+      line-height: 16px;
+      border-radius: 0 8px 8px 8px;
+      background-color: $light-gray;
+      padding: 12px;
+      margin-top: 5px;
+      & a{
+        color: $blue;
+      }
+      & span{
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        background-color: $gray-blue-border;
+        padding: 2px 12px;
+        border-radius: 0 4px 4px 0;
+        border-left: 2px solid $blue;
+        margin-bottom: 10px;
+      }
+    }
+    &-bottom{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s;
+    }
+
+    &-new{
+      margin-top: 30px;
+    }
+    &-title{
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14px;
+      margin-bottom: 15px;
+    }
+    &-more{
+      margin-top: 15px;
+      display: flex;justify-content: space-between;
+      align-items: center;
+      & .btn-submit{
+        min-width: 168px;
+        &[disabled]{
+          opacity: 0.5;
+          cursor: default;
+        }
+      }
+    }
+    &-text{
+      position: relative;
+      font-size: 12px;
+      line-height: 16px;
+      padding-left: 25px;
+      width: 100%;
+      & span{
+        color: $blue;
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 16px;
+        //background: url("../img/icon-comment-info.svg") no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+  }
+}

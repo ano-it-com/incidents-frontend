@@ -1,0 +1,35 @@
+@import "partials/mixins";
+@import "partials/params";
+
+.incidents-single-item-view,
+.incidents-single-action-item-view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+
+  & .container {
+    /*max-width: 974px;*/
+    min-width: initial;
+  }
+
+  & .actions-list {
+    margin: 0;
+  }
+}
+
+
+.left-block {
+  flex: 1 1 calc(100% - 600px);
+  position: relative;
+  width: 100%;
+  padding: ($mm-value * 6) + px ($mm-value * 6) + px ($mm-value * 6) + px ($mm-value * 8) + px;
+  z-index: 2;
+}
+
+
+.right-block {
+  flex: 1 1 600px;
+  min-width: 600px;
+  padding: ($mm-value * 6) + px ($mm-value * 8) + px ;
+}

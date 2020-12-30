@@ -1,0 +1,9 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.resizer {
+  transition: border .05s;
+  &:hover {
+    border-left: 1px solid $blue !important;
+  }
+}

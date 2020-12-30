@@ -1,0 +1,14 @@
+@import "/params";
+
+@mixin title {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 700;
+  color: $darkblue;
+  position: relative;
+}
+
+
+@mixin table-item {
+  padding: ($mm-value * 4) + px;
+  border-radius: 2px;
+}
